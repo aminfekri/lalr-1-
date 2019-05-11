@@ -1,0 +1,127 @@
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>فاز دوم کامپایلر (compiler amin fekri )</title>
+		<style>
+			body { background-color: #F0F0F0; }
+body * { font-family:courier; }
+td { horizontal-align: middle; vertical-align: top; white-space: nowrap; }
+th { white-space: nowrap; }
+</style>
+		<script language="javascript" src="js/underscore.js"></script>
+		<script language="javascript" src="js/tools.js"></script>
+		<script language="javascript" src="js/grammar.js"></script>
+		<script language="javascript" src="js/grammarview.js"></script>
+		<script language="javascript" src="js/lalr1item.js"></script>
+		<script language="javascript" src="js/lrclosuretable.js"></script>
+		<script language="javascript" src="js/lrclosuretableview.js"></script>
+		<script language="javascript" src="js/tree.js"></script>
+		<script language="javascript" src="js/treeview.js"></script>
+		<script language="javascript" src="js/lrtable.js"></script>
+		<script language="javascript" src="js/lrtableview.js"></script>
+		<script language="javascript" src="js/lrparseview.js"></script>
+		<script language="javascript" src="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="js/bootstrap.min.css">
+	</head>
+
+	<body>
+
+		<div align="center">
+			<p>پروژه کامپایلر فاز دوم </br>
+			</p>
+		</div>
+		<script language="javascript">
+			<!--
+
+var lrTable;
+
+function grammarChanged() {
+	displayRuleIndices();
+
+	var grammar = new Grammar($element('grammar').value);
+	var lrClosureTable = new LRClosureTable(grammar);
+	lrTable = new LRTable(lrClosureTable);
+
+	$element('firstFollowView').innerHTML = formatFirstFollow(grammar); // grammar views
+	$element('lrClosureTableView').innerHTML = formatLRClosureTable(lrClosureTable);
+	$element('lrTableView').innerHTML = formatLRTable(lrTable);
+
+	parseInput();
+}
+
+// -->
+</script>
+
+
+
+
+
+		<table align="center" class="border-success table-bordered">
+			<tbody>
+				<tr>
+					<td>
+						<div id="grammarView" class="col-md-1 active"></div>
+						</br>
+						<div id="firstFollowView" class="table-responsive table-bordered"></div>
+					</td>
+					<td>
+						</br>
+						<input type="button" class="btn btn-primary" value="&gt;&gt;">
+						</br>
+					</td>
+					<td>
+						<div style="height: 100%; overflow: auto;">
+							<div id="lrClosureTableView" align="center"></div>
+							<br>
+							<hr><br>
+							<table border="1" cellpadding="8">
+								<tbody>
+									<tr>
+										<td>
+											<div id="lrTableView"></div>
+										</td>
+										<td>
+											<div id="lrParseView" class="" align="center"></div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script language="javascript">
+		<!--
+
+		// <INITIALIZATION>
+
+		{
+			var grammar = new Grammar('E\' -> E\n\
+E -> E + T\n\
+E -> T\n\
+T -> T * F\n\
+T -> F\n\
+F -> ( E )\n\
+F -> id\n\
+');
+
+			$element('grammarView').innerHTML = formatGrammar(grammar); // grammarviews
+		}
+
+		$element('lrParseView').innerHTML = formatInitialParseView('id + id', 100);
+
+		grammarChanged();
+
+		// </INITIALIZATION>
+
+		// -->
+
+	</script>
+	</body>
+
+	<!-- Mirrored from jsmachines.sourceforge.net/machines/lalr1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jan 2018 18:34:18 GMT -->
+
+</html>
